@@ -7,12 +7,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
+@WebServlet(name = "mymy", value = "/mymy")
 public class Servlet3 extends HttpServlet {
     private String message;
 
     public void init() {
-        message = "Hello World!";
+        message = "SVT-mymy";
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -21,7 +21,6 @@ public class Servlet3 extends HttpServlet {
         // Hello
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
         out.println("<h1>" + message + "</h1>");
         out.println("</body></html>");
     }

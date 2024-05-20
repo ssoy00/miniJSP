@@ -1,27 +1,34 @@
 package com.busanit501.workspace;
 
-import java.io.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
+@WebServlet(name = "helloServlet", value = "/test")
 public class HelloServlet extends HttpServlet {
-    private String message;
+  private String message;
 
-    public void init() {
-        message = "Hello World!";
-    }
+  public void init() {
+    message = "test";
+  }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
+  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    response.setContentType("text/html");
 
-        // Hello
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
-        out.println("</body></html>");
-    }
+    // Hello
+    // 결론, 이런 형식으로 작업을 안하고, 서버에서 직접 그리기보다.
+    // 해당 뷰 화면에 데이터를 넘겨서, 그데이터를 이용하는 방식으로 작업.
+    // 모델2.
 
-    public void destroy() {
-    }
+    PrintWriter out = response.getWriter();
+    out.println("<html><body>");
+    out.println("<h1>" + message + "</h1>");
+    out.println("</body></html>");
+  }
+
+  public void destroy() {
+  }
 }
